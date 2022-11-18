@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -6,7 +6,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+        'OpenSans': ['Open Sans'],
+        'Poppins': ['Poppins']
+    }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide',require('@tailwindcss/forms'), require('@tailwindcss/typography'))
+  ],
 }
