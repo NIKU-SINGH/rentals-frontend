@@ -13,6 +13,7 @@ function useFetch(url) {
       try {
         const res = await axios.get(url);
         setData(res?.data);
+        console.log("Data is here",res.data)
       } catch (err) {
         setError(err)
         console.log("error is here", err)
@@ -21,16 +22,6 @@ function useFetch(url) {
     }
     fetchData();
   }, [url]);
-
-  // useEffect(() => {
-  //   axios.get(url).then((res) => {
-  //     setData(res?.data);
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   })
-  // },[url])
-
-
 
   const refetch = async () => {
     setLoading(true);

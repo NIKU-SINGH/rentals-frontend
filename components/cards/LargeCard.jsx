@@ -4,7 +4,12 @@ function LargeCard({ name, count, img, rating, price, desc, distance }) {
     return (
         <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-out ">
             <div className="relative h-64 w-64">
-                <Image src={img} layout="fill" className="rounded-xl" />
+                <Image src={img}
+                    className="rounded-xl  h-full w-full object-cover"
+                    height={200}
+                    width={300}
+                    alt="hotel image"
+                />
             </div>
             <div>
                 <h3 className="text-xl font-semibold mt-3">{name}</h3>

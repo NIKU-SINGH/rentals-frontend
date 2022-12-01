@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SearchIcon, UsersIcon } from '@heroicons/react/solid'
 
 import 'react-date-range/dist/styles.css'; // main style file
@@ -7,6 +7,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 
 import { DateRangePicker } from 'react-date-range';
 import { useRouter } from 'next/router';
+import useFetch from '../../hooks/useFetch';
 
 function Navbar() {
     const [searchInput, setSearchInput] = useState("");
@@ -30,10 +31,11 @@ function Navbar() {
     };
 
     const search = () => {
+        setSearchInput('');
         router.push({
             pathname: "/search",
             query: {
-                location: searchInput,
+                city: searchInput,
                 startDate: startDate.toISOString(),
                 endDate: endDate.toISOString(),
                 noOfGuests
@@ -41,21 +43,20 @@ function Navbar() {
         })
     }
 
-
     return (
         <div>
             <div className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10 font-Poppins '>
                 {/* Left */}
-                <div 
+                <div
                     className='relative flex items-center h-16 my-auto cursor-pointer'
                     onClick={() => router.push("/")}
                 >
                     <Image
                         src='/images/homey.svg'
-                        layout="fill"
-                        objectFit='contain'
-                        objectPosition='left'
-                    // className='cursor-pointer'
+                        height="500"
+                        width="150"
+                        alt="logo"
+                        className='cursor-pointer'
                     />
                 </div>
 
@@ -68,15 +69,23 @@ function Navbar() {
                         placeholder='start your search'
                         className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400'
                     />
-                    <SearchIcon className="hidden md:inline-flex cursor-pointer md:mx-2 h-8 bg-[#8E56EA] text-white rounded-full p-2" />
+                    <SearchIcon
+                        className="hidden md:inline-flex cursor-pointer md:mx-2 h-8 bg-[#8E56EA] text-white rounded-full p-2"
+                        onClick={search}
+                    />
                 </div>
 
                 {/* Right */}
                 <div className='flex items-center space-x-4 justify-end text-gray-500'>
-                    <button className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-red-600 hover:shadow-md'>
-                        Register
+                    <button
+                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'
+                        onClick={() => { router.push("/auth/signup") }}
+                    >
+                        Sign Up
                     </button>
-                    <button className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-red-600 hover:shadow-md'>
+                    <button
+                        onClick={() => { router.push("/auth/login") }}
+                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'>
                         Login
                     </button>
                 </div>

@@ -4,34 +4,34 @@ import Image from 'next/image'
 function Contact() {
     return (
         <section
-            class="overflow-hidden bg-yellow-100 sm:grid sm:grid-cols-2 sm:items-center"
+            className="overflow-hidden bg-yellow-100 sm:grid sm:grid-cols-2 sm:items-center"
         >
-            <div class="p-8 md:p-12 lg:px-16 lg:py-24">
-                <div class="mx-auto max-w-xl text-center sm:text-left">
-                    <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
+            <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+                <div className="mx-auto max-w-xl text-center sm:text-left">
+                    <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit
                     </h2>
 
-                    <p class="hidden text-gray-700 md:mt-4 md:block">
+                    <p className="hidden text-gray-700 md:mt-4 md:block">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas
                         tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et
                         fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt
                         duis.
                     </p>
 
-                    <div class="mt-4 md:mt-8">
+                    <div className="mt-4 md:mt-8">
                         <a
                             href="#"
-                            class="group relative inline-block focus:outline-none focus:ring focus:ring-yellow-400"
+                            className="group relative inline-block focus:outline-none focus:ring focus:ring-yellow-400"
                         >
                             <span
-                                class="relative z-10 block rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white transition group-hover:scale-105"
+                                className="relative z-10 block rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white transition group-hover:scale-105"
                             >
                                 Get Started Today
                             </span>
 
                             <span
-                                class="absolute inset-0 -rotate-3 scale-105 rounded bg-gray-900/25 transition group-hover:rotate-0"
+                                className="absolute inset-0 -rotate-3 scale-105 rounded bg-gray-900/25 transition group-hover:rotate-0"
                             ></span>
                         </a>
                     </div>
@@ -41,7 +41,7 @@ function Contact() {
             <img
                 alt="Violin"
                 src="https://images.unsplash.com/photo-1484959014842-cd1d967a39cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="h-full w-full border-l-4 border-t-4 border-gray-900 object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-tl-[30px] md:h-[calc(100%_-_4rem)] md:rounded-tl-[60px]"
+                className="h-full w-full border-l-4 border-t-4 border-gray-900 object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-tl-[30px] md:h-[calc(100%_-_4rem)] md:rounded-tl-[60px]"
             />
         </section>
 
