@@ -9,7 +9,7 @@ import store from '../../redux/store'
 import base_url from '../../config/config';
 import Link from 'next/link'
 
-const login = () => {
+const login = () =>{
     const router = useRouter();
     const URL = `${base_url}/api/auth/login`;
     // const [username, setUsername] = useState();

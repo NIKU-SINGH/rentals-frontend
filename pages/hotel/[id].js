@@ -4,8 +4,7 @@ import { useRouter } from 'next/router'
 import useFetch from '../../hooks/useFetch';
 import base_url from '../../config/config';
 
-
-export default function hotel_id () {
+const hotelId = () =>  {
     const router = useRouter();
     const hotelId = router.query.id;
 
@@ -19,3 +18,4 @@ export default function hotel_id () {
         </div>
     )
 }
+export default hotelId
