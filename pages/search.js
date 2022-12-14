@@ -2,8 +2,9 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/searchCard/ProductCard';
 import useFetch from '../hooks/useFetch';
+import base_url from '../config/config';
 
-function search() {
+const search = () => {
     const router = useRouter();
     const { city, startDate, endDate, noOfGuests } = router.query;
     const [min, setMin] = useState(0);
@@ -12,8 +13,8 @@ function search() {
     const [place, setPlace] = useState(city);
     const [rating, setRating] = useState('4.5');
 
-    const URL = 'http://localhost:8000/api/hotels';
-    const { data, loading, error, refetch } = useFetch(`${URL}?city=${place}&min=${min}&max=${max}&type=${type}&rating=${rating}`);
+    // const URL = 'http://localhost:8000/api/hotels';
+    const { data, loading, error, refetch } = useFetch(`${base_url}/api/hotels?city=${place}&min=${min}&max=${max}&type=${type}&rating=${rating}`);
 
     const searchFilter = () => {
         // refetch(`${URL}`)

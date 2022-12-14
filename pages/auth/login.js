@@ -6,11 +6,12 @@ import useFetch from '../../hooks/useFetch'
 import axios from 'axios';
 import { useEffect } from 'react';
 import store from '../../redux/store'
+import base_url from '../../config/config';
+import Link from 'next/link'
 
-
-function login() {
+const login = () => {
     const router = useRouter();
-    const URL = 'http://localhost:8000/api/auth/login';
+    const URL = `${base_url}/api/auth/login`;
     // const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -201,11 +202,11 @@ function login() {
                                 <div className="col-span-6">
                                     <p className="text-sm text-gray-500">
                                         By creating an account, you agree to our
-                                        <a href="#" className="text-gray-700 underline">
+                                        <Link to="#" className="text-gray-700 underline">
                                             terms and conditions
-                                        </a>
+                                        </Link>
                                         and
-                                        <a href="#" className="text-gray-700 underline">privacy policy</a>.
+                                        <Link to="#" className="text-gray-700 underline">privacy policy</Link>.
                                     </p>
                                 </div>
 
