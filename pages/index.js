@@ -1,15 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Navbar from '../components/navbar/Navbar'
 import Banner from '../components/banner/Banner'
-import styles from '../styles/Home.module.css'
 import SmallCard from '../components/cards/smallCard'
 import MediumCard from '../components/cards/MediumCard'
 import Contact from '../components/contact/Contact'
 import LargeCard from '../components/cards/LargeCard'
 import Footer from '../components/footer/Footer'
 import useFetch from '../hooks/useFetch'
-import { useEffect, useState } from 'react'
+import base_url from '../config/config'
 
 const nearbyHotels = [
   {
@@ -144,9 +142,9 @@ export default function Home({ explorePlaces, hotelType, featuredHotels }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:8000/api/hotels');
-  const res1 = await fetch('http://localhost:8000/api/hotels/countByType');
-  const res2 = await fetch('http://localhost:8000/api/hotels?featured=true&limit=10&min=0&max=99999')
+  const res = await fetch(`${base_url}/api/hotels`);
+  const res1 = await fetch(`${base_url}/api/hotels/countByType`);
+  const res2 = await fetch(`${base_url}/api/hotels?featured=true&limit=10&min=0&max=99999`)
 
   const explorePlaces = await res.json();
   const hotelType = await res1.json();

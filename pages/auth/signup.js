@@ -2,11 +2,12 @@ import React from 'react'
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import {useState} from 'react'
+import base_url from '../../config/config';
 
 
 function login() {
     const router = useRouter();
-    const URL = 'http://localhost:8000/api/auth/signup';
+    const URL = `${base_url}/api/auth/signup`;
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -15,7 +16,7 @@ function login() {
         try{
             const res = await axios.post(URL,{username: username, email:email,password:password, isAdmin: false})
             console.log("Signed up",res.data)
-            router.push("http://localhost:8000/api/auth/login")
+            router.push(`${base_url}/api/auth/login`)
         } catch(err) {
             console.log("error",err)
         }

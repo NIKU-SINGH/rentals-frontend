@@ -6,11 +6,12 @@ import useFetch from '../../hooks/useFetch'
 import axios from 'axios';
 import { useEffect } from 'react';
 import store from '../../redux/store'
+import base_url from '../../config/config';
 
 
 function login() {
     const router = useRouter();
-    const URL = 'http://localhost:8000/api/auth/login';
+    const URL = `${base_url}/api/auth/login`;
     // const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
