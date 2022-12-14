@@ -8,13 +8,20 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { useRouter } from 'next/router';
 import useFetch from '../../hooks/useFetch';
+import store from '../../redux/store'
+
+import { logout } from '../../redux/userSlice';
+import { useSelector, useDispatch } from 'react-redux'
 
 function Navbar() {
     const [searchInput, setSearchInput] = useState("");
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [noOfGuests, setNoOfGuests] = useState(1)
+
     const router = useRouter();
+    const dispatch = useDispatch();
+    const user = store.getState().user?.userInfo;
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -53,8 +60,8 @@ function Navbar() {
                 >
                     <Image
                         src='/images/homey.svg'
-                        height="500"
-                        width="150"
+                        height={500}
+                        width={150}
                         alt="logo"
                         className='cursor-pointer'
                     />
@@ -76,18 +83,54 @@ function Navbar() {
                 </div>
 
                 {/* Right */}
-                <div className='flex items-center space-x-4 justify-end text-gray-500'>
-                    <button
-                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'
-                        onClick={() => { router.push("/auth/signup") }}
-                    >
-                        Sign Up
-                    </button>
-                    <button
-                        onClick={() => { router.push("/auth/login") }}
-                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'>
-                        Login
-                    </button>
+                <div className='flex items-center space-x-4 justify-between text-gray-500'>
+                    {
+                        !user.username ?
+                            (
+                                <div className='flex justify-evenly  items-center w-[50%]'>
+                                    <button
+                                        onClick={() => { router.push("/auth/login") }}
+                                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'>
+                                        Login
+                                    </button>
+                                    <button
+                                        onClick={() => { router.push("/auth/signup") }}
+                                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'>
+                                        Sign Up
+                                    </button>
+                                </div>
+                            )
+                            :
+                            (
+                                <div className='flex items-center justify-evenly w-full p-1'>
+                                    <div>
+                                        {/* <Image
+                                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                        height={10}
+                                        width={10}
+                                        alt="Avatar"
+                                        className="rounded-full h-8 w-8 md:h-14 md:w-14 object-cover"
+                                    /> */}
+                                        <h1 
+                                        onClick={()=>router.push(`/user/${user?._id}`) }
+                                        className='text-black cursor-pointer text-base'>{user.username}</h1>
+
+                                    </div>
+
+                                    <button
+                                        className='btn rounded-full bg-[#8E56EA] text-white w-20 py-1 md:w-24 md:py-2 hover:bg-violet-900 hover:shadow-md'
+                                        onClick={
+                                            () => {
+                                                dispatch(logout())
+                                                router.push("/")
+                                            }
+                                        }
+                                    >
+                                        Log Out
+                                    </button>
+                                </div>
+                            )
+                    }
                 </div>
                 {
                     searchInput &&

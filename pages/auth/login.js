@@ -1,46 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import { useSelector, useDispatch } from 'react-redux'
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice';
 import useFetch from '../../hooks/useFetch'
 import axios from 'axios';
+import { useEffect } from 'react';
+import store from '../../redux/store'
+
 
 function login() {
     const router = useRouter();
     const URL = 'http://localhost:8000/api/auth/login';
-    const [username, setUsername] = useState();
+    // const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const userInfo = store.getState().user?.userInfo;
+    const [user, setUser] = useState(userInfo);
 
+    const dispatch = useDispatch();
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         try {
-            const res = await axios.post(URL,{
-                username,
+            // dispatch(loginStart({username,password}))
+            const res = await axios.post(URL, {
+                // username,
+                email,
                 password,
             })
-            console.log("Data is this from AUTH", res.data)
-
+            const data = await res.data
+            dispatch(loginSuccess(data))
+            if (data.username && data._id) {
+                console.log("User ID ", data._id)
+                router.push(`/user/${data._id}`)
+            }
         } catch (err) {
-            console.log("Errorrrr", err)
+            dispatch(loginFailure(err))
+            console.log("Error", err.message)
         }
     }
-
-    // const handleLogin = async (e) => {
-    //     e.preventDefault();
-    //     dispatch(loginStart());
-    //     try {
-    //         const res = await axios.post(URL, {
-    //             username,
-    //             password,
-    //         })
-    //         dispatch(loginSuccess(res.data))
-    //     } catch (err) {
-    //         dispatch(loginFailure());
-    //     }
-    // }
-
-
 
     return (
         <div className='mt-10 mb-10 ml-48 mr-48 bg-red-500 flex items-center justify-center'>
@@ -119,7 +117,7 @@ function login() {
                             </div>
 
                             <form action="#" className="mt-8 grid grid-cols-6 gap-6">
-                                <div className="col-span-6">
+                                {/* <div className="col-span-6">
                                     <label
                                         htmlFor="username"
                                         className="block text-sm font-medium text-gray-700"
@@ -134,7 +132,7 @@ function login() {
                                         onChange={(e) => setUsername(e.target.value)}
                                         className="mt-1 w-full rounded-md p-2 border-gray-200 bg-gray-100  text-sm text-gray-700 shadow-sm"
                                     />
-                                </div>
+                                </div> */}
 
 
                                 <div className="col-span-6">
@@ -213,7 +211,9 @@ function login() {
 
                                 <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                                     <button
-                                        onClick={handleLogin}
+                                        onClick={
+                                            handleLogin
+                                        }
                                         className="inline-block shrink-0 rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
                                     >
                                         Login to account

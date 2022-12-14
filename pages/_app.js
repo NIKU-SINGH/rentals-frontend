@@ -1,16 +1,23 @@
 import Footer from '../components/footer/Footer'
 import Navbar from '../components/navbar/Navbar'
 import '../styles/globals.css'
-import { store } from '../redux/store'
+import  store  from '../redux/store'
 import { Provider } from 'react-redux'
+import router from 'next/router'
 
 function MyApp({ Component, pageProps }) {
+
+  // const user = store.getState().user.userInfo;
+  // if(user){
+  //   router.push(`/user/${user._id}`) 
+  // }
+
   return <>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
         <Navbar />
         <Component {...pageProps} />
         <Footer />
-    {/* </Provider> */}
+    </Provider>
 
   </>
 }

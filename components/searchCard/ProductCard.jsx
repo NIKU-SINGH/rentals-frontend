@@ -44,7 +44,7 @@ function ProductCard(data) {
                         </div>
                         <div className='flex items-center justify-between'>
                             <p className="text-xl font-black text-gray-800">
-                            ₹ {data.hotel.cheapestPrice}
+                                ₹ {data.hotel.cheapestPrice}
                                 <span className="font-normal text-gray-600 text-base">/night</span>
                             </p>
                             <p className="text-xl font-black text-gray-800">
