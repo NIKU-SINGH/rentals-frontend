@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import useFetch from '../../hooks/useFetch';
+import base_url from '../../config/config';
 
 function Filter() {
     const [min, setMin] = useState(0);
@@ -11,7 +12,7 @@ function Filter() {
     const [rating, setRating] = useState(4.5);
 
     const router = useRouter();
-    const URL = 'http://localhost:8000/api/hotels';
+    const URL = `${base_url}/api/hotels`;
     const { startDate, endDate, noOfGuests } = router.query;
     const { dispatch } = useContext(SearchContext);
 

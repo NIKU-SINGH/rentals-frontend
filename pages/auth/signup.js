@@ -6,7 +6,7 @@ import base_url from '../../config/config';
 import Link from 'next/link';
 
 
-const  signup = () => {
+const signup = () => {
     const router = useRouter();
     const URL = `${base_url}/api/auth/signup`;
     const [username, setUsername] = useState();
