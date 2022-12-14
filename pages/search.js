@@ -1,9 +1,5 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import Filter from '../components/filter/Filter';
-import Footer from '../components/footer/Footer'
-import Hotel from '../components/hotel/Hotel';
-import Navbar from '../components/navbar/Navbar'
 import ProductCard from '../components/searchCard/ProductCard';
 import useFetch from '../hooks/useFetch';
 

@@ -7,6 +7,7 @@ function Banner({ bannerData }) {
                 height={600}
                 width={900}
                 alt="banner image"
+                priority="true"
                 className="object-cover rounded-lg h-full w-full"
             />
             <div className="absolute top-1/2 w-full text-center">

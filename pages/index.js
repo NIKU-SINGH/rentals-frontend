@@ -69,7 +69,6 @@ const hotelTypeImages = [
 
 export default function Home({ explorePlaces, hotelType, featuredHotels }) {
   // const { data, loading, error } = useFetch("http://localhost:8000/api/hotels")
-  // console.log("Explored places", explorePlaces);
 
   return (
     <div>
