@@ -3,9 +3,10 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import {useState} from 'react'
 import base_url from '../../config/config';
+import Link from 'next/link';
 
 
-function login() {
+const  signup = () => {
     const router = useRouter();
     const URL = `${base_url}/api/auth/signup`;
     const [username, setUsername] = useState();
@@ -183,11 +184,11 @@ function login() {
                                 <div className="col-span-6">
                                     <p className="text-sm text-gray-500">
                                         By creating an account, you agree to our
-                                        <a href="#" className="text-gray-700 underline">
+                                        <Link to="#" className="text-gray-700 underline">
                                             terms and conditions
-                                        </a>
+                                        </Link>
                                         and
-                                        <a href="#" className="text-gray-700 underline">privacy policy</a>.
+                                        <Link to="#" className="text-gray-700 underline">privacy policy</Link>.
                                     </p>
                                 </div>
 
@@ -218,4 +219,4 @@ function login() {
     )
 }
 
-export default login
+export default signup

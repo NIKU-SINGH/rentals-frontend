@@ -4,7 +4,7 @@ import ProductCard from '../components/searchCard/ProductCard';
 import useFetch from '../hooks/useFetch';
 import base_url from '../config/config';
 
-function search() {
+const search = () => {
     const router = useRouter();
     const { city, startDate, endDate, noOfGuests } = router.query;
     const [min, setMin] = useState(0);

@@ -5,7 +5,7 @@ import useFetch from '../../hooks/useFetch';
 import base_url from '../../config/config';
 
 
-export default function () {
+export default function hotel_id () {
     const router = useRouter();
     const hotelId = router.query.id;
 
