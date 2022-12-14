@@ -1,5 +1,5 @@
 import Footer from '../components/footer/Footer'
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../components/navbar/index'
 import '../styles/globals.css'
 import  store  from '../redux/store'
 import { Provider } from 'react-redux'
