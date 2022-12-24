@@ -4,7 +4,8 @@ import Table from '../../components/table/Table'
 const userId = () => {
     return (
         <div>
-            <Table />
+            {/* <Table /> */}
+            This is a table
         </div>
     )
 }

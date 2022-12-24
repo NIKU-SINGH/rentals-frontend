@@ -16,7 +16,7 @@ const signup = () => {
     const handleClick = async () => {
         try{
             const res = await axios.post(URL,{username: username, email:email,password:password, isAdmin: false})
-            console.log("Signed up",res.data)
+            console.log("Signed up",res?.data)
             router.push(`${base_url}/api/auth/login`)
         } catch(err) {
             console.log("error",err)
@@ -184,11 +184,11 @@ const signup = () => {
                                 <div className="col-span-6">
                                     <p className="text-sm text-gray-500">
                                         By creating an account, you agree to our
-                                        <Link to="#" className="text-gray-700 underline">
+                                        <Link href="#" className="text-gray-700 underline">
                                             terms and conditions
                                         </Link>
                                         and
-                                        <Link to="#" className="text-gray-700 underline">privacy policy</Link>.
+                                        <Link href="#" className="text-gray-700 underline">privacy policy</Link>.
                                     </p>
                                 </div>
 

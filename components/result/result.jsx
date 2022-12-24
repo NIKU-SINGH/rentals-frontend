@@ -213,7 +213,7 @@ function result() {
                             <div
                                 className="mt-4 grid grid-cols-1 gap-px border border-gray-200 bg-gray-200 sm:grid-cols-2 lg:grid-cols-3"
                             >
-                                <Link to="#" classNameName="relative block bg-white">
+                                <Link href="#" classNameName="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -276,7 +276,7 @@ function result() {
                                     </div>
                                 </Link>
 
-                                <Link to="#" className="relative block bg-white">
+                                <Link href="#" className="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -339,7 +339,7 @@ function result() {
                                     </div>
                                 </Link>
 
-                                <Link to="#" className="relative block bg-white">
+                                <Link href="#" className="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -402,7 +402,7 @@ function result() {
                                     </div>
                                 </Link>
 
-                                <Link to="#" className="relative block bg-white">
+                                <Link href="#" className="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -465,7 +465,7 @@ function result() {
                                     </div>
                                 </Link>
 
-                                <Link to="#" className="relative block bg-white">
+                                <Link href="#" className="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"
@@ -528,7 +528,7 @@ function result() {
                                     </div>
                                 </Link>
 
-                                < Link to ="#" className="relative block bg-white">
+                                < Link href ="#" className="relative block bg-white">
                                     <button
                                         type="button"
                                         className="absolute right-4 top-4 rounded-full bg-black p-2 text-white"

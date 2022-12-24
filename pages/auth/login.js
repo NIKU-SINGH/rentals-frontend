@@ -29,11 +29,11 @@ const login = () =>{
                 email,
                 password,
             })
-            const data = await res.data
+            const data = await res?.data
             dispatch(loginSuccess(data))
-            if (data.username && data._id) {
-                console.log("User ID ", data._id)
-                router.push(`/user/${data._id}`)
+            if (data?.username && data?._id) {
+                console.log("User ID ", data?._id)
+                router.push(`/user/${data?._id}`)
             }
         } catch (err) {
             dispatch(loginFailure(err))
@@ -202,11 +202,11 @@ const login = () =>{
                                 <div className="col-span-6">
                                     <p className="text-sm text-gray-500">
                                         By creating an account, you agree to our
-                                        <Link to="#" className="text-gray-700 underline">
+                                        <Link href="#" className="text-gray-700 underline">
                                             terms and conditions
                                         </Link>
                                         and
-                                        <Link to="#" className="text-gray-700 underline">privacy policy</Link>.
+                                        <Link href="#" className="text-gray-700 underline">privacy policy</Link>.
                                     </p>
                                 </div>
 
