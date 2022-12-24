@@ -85,7 +85,7 @@ function Navbar() {
                 {/* Right */}
                 <div className='flex items-center space-x-4 justify-between text-gray-500'>
                     {
-                        !user.username ?
+                        !user?.username ?
                             (
                                 <div className='flex justify-evenly  items-center w-[50%]'>
                                     <button
