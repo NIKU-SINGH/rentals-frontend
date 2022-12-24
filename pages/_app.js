@@ -1,9 +1,10 @@
 import Footer from '../components/footer/Footer'
 import Navbar from '../components/navbar/index'
 import '../styles/globals.css'
-import  store  from '../redux/store'
+import store from '../redux/store'
 import { Provider } from 'react-redux'
 import router from 'next/router'
+import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }) {
 
@@ -14,9 +15,10 @@ function MyApp({ Component, pageProps }) {
 
   return <>
     <Provider store={store}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
+      <NextNProgress />
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
     </Provider>
 
   </>

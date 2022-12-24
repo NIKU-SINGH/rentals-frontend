@@ -113,7 +113,7 @@ const Home = ({ explorePlaces, hotelType, featuredHotels })  => {
         </section>
 
         <section className="pt-6 mb-8">
-          <h2 className="text-4xl font-semibold py-8">Checkout Featured Properties</h2>
+          <h2 className="text-4xl font-semibold py-8" id="checkout">Checkout Featured Properties</h2>
           <div className='flex space-x-8 overflow-x-scroll scrollbar-hide p-3'>
             {
               featuredHotels?.map((data, id) => (
