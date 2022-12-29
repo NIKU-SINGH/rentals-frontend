@@ -14,7 +14,7 @@ const search = () => {
     const [rating, setRating] = useState('4.5');
 
     // const URL = 'http://localhost:8000/api/hotels';
-    const { data, loading, error, refetch } = useFetch(`${base_url}/api/hotels?city=${place}&min=${min}&max=${max}&type=${type}&rating=${rating}`);
+    const { data, loading, error, refetch } = useFetch(`${base_url}/api/hotels/search/${city}`);
 
     const searchFilter = () => {
         // refetch(`${URL}`)
