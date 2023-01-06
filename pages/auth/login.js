@@ -9,7 +9,7 @@ import store from '../../redux/store'
 import base_url from '../../config/config';
 import Link from 'next/link'
 
-const login = () =>{
+const login = () => {
     const router = useRouter();
     const URL = `${base_url}/api/auth/login`;
     // const [username, setUsername] = useState();
@@ -17,6 +17,7 @@ const login = () =>{
     const [password, setPassword] = useState();
     const userInfo = store.getState().user?.userInfo;
     const [user, setUser] = useState(userInfo);
+    const [isAdmin,setIsAdmin] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -185,17 +186,18 @@ const login = () =>{
 
                                 <div className="col-span-6">
                                     <label htmlFor="MarketingAccept" className="flex gap-4">
+                                        <span className="text-sm text-gray-700 font-medium">
+                                            Is Admin
+                                        </span>
                                         <input
                                             type="checkbox"
                                             id="MarketingAccept"
                                             name="marketing_accept"
+                                            onChange={(e) => setIsAdmin(e.target.value)}
                                             className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
                                         />
 
-                                        <span className="text-sm text-gray-700">
-                                            I want to receive emails about events, product updates and
-                                            company announcements.
-                                        </span>
+
                                     </label>
                                 </div>
 

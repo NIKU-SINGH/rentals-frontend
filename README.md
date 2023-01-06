@@ -1,34 +1,175 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+![Logo](https://rentals-frontend-orpin.vercel.app/images/homey.svg)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+# Homey: 
+
+Homey: A home rental platform
+Tech stack Used: Next js, Express JS, Node JS, Mongo DB, JWT, Redux Toolkit
+Homey is a platform where we make it easy for travellers and tourist to search for Hotels, Villas, Resorts nearby and make them available at a cheap price.
+The app has a feature where a user can type a location, choose a range of dates in which he wants the hotel, book the rooms based on the availablity. It also has a dashboard where a user can check its listings.
+
+It has a JWT authentication enabled where a user can sign up to the site, the session is store in the cookies, we use JWT token to create a session ID. 
+There is an admin pannel where an admin can create, update, delete the users, hotels and rooms.
+
+## Authors
+
+- [Niku Singh](https://www.github.com/NIKU-SINGH)
+
+
+## Demo
+
+Insert gif or link to demo
+
+
+<!-- ## Screenshots
+
+|   |   |   |   |   |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |    -->
+
+
+
+## Features
+
+- Text Based Search, Filtering based on prices and dates
+- User sign up
+- Admin Pannel
+- 
+
+
+## API Reference
+### There are 3 main API end points
+- User endpoint
+- Hotel endpoint
+- Rooms endpoint
+
+## 1. User 
+--- 
+
+```http
+  GET /api/user
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `none` |  | Returns all the users |
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```http
+  GET /api/user/:id
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Returns individual User based on User_id |
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+```http
+  PUT /api/user/:id
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Updates the User with the data passed in the body |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```http
+  DELETE /api/user/:id
+```
 
-## Deploy on Vercel
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Deletes the individual User based on User_id |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
+---
+---
+---
+## 1. Hotel 
+--- 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```http
+  POST /api/hotels
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `none` |  |  | Creates a new Hotel based on the data passed in the body
+
+
+```http
+  PUT /api/hotels/:id
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Updates the hotel based on the hotel_id |
+
+```http
+  DELETE /api/hotels/:id
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Deletes the individual hotel based on User_id |
+
+
+```http
+  GET /api/hotels/find/:id
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id` | `Number` | Returns an individual hotel |
+
+
+```http
+  GET /api/hotels/search/:search
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `search` | `String` | Searches the db based on the text provided |
+
+
+```http
+  GET /api/hotels
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `none` |  | Returns all hotel details |
+
+
+
+
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/NIKU-SINGH/rentals-frontend
+```
+
+Go to the project directory
+
+```bash
+  cd client
+```
+
+Install dependencies
+
+```bash
+  yarn
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
